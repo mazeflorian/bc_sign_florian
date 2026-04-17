@@ -4,8 +4,8 @@ git_push() {
  
   CURRENT_BRANCH=$(git branch --show-current)
  
-  if [ "$CURRENT_BRANCH" != "master" ]; then
-    echo "You must be on the master branch to execute this script."
+  if [ "$CURRENT_BRANCH" != "main" ]; then
+    echo "You must be on the main branch to execute this script."
     exit 1
   fi
  
@@ -17,16 +17,16 @@ git_push() {
     exit 1
   fi
  
-  if [ "$BRANCH" != "master" ]; then
-    echo "You are only allowed to push to the master branch."
+  if [ "$BRANCH" != "main" ]; then
+    echo "You are only allowed to push to the main branch."
     exit 1
   fi
  
   git add .
   git commit -m "$MESSAGE"
-  git push origin master
+  git push origin main
  
-  echo "✅ Commit and push to master completed successfully."
+  echo "✅ Commit and push to main completed successfully."
 }
  
 git_push
